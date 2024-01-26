@@ -22,16 +22,20 @@ before_script:
   - python3 -m venv venv
   - source venv/bin/activate
 
+initialize:
+  script:
+    # install dependecies
+    - python -m pip install --upgrade pip
+    - pip install flake8 flake8-docstrings pytest pytest-cov pdoc
+    - if [ -f requirements.txt ]
+    - then
+    -   pip install -r requirements.txt
+    - fi 
+
+
 test:
   script:
-    - python3 -m pip install ruff tox  # you can also use tox
-    - python3 -m pip install --editable ".[test]"
-    - tox -e py,ruff
-
-run:
-  script:
-    - python3 -m pip install .
-    # run the command here
+    - pytest --doctest-modules --cov=. --cov-fail-under=66
   artifacts:
     paths:
       - build/*
