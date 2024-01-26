@@ -19,7 +19,7 @@ cache:
 
 before_script:
   - python3 --version
-  - python -m venv venv
+  - python3 -m venv venv
   - source venv/bin/activate
 
 test:
