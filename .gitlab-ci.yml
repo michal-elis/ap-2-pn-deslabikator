@@ -49,18 +49,11 @@ documentation:
 
 
 pages:
+  stage: deploy
   script:
-    - python3 -m pip install sphinx sphinx-rtd-theme
-    - cd doc
-    - make html
-    - mv build/html/ ../public/
+    - echo "The site will be deployed to $CI_PAGES_URL"
   artifacts:
     paths:
       - public
   rules:
     - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
-
-deploy:
-  stage: deploy
-  script: echo "Define your deployment script!"
-  environment: production
