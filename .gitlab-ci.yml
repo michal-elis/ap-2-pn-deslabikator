@@ -34,7 +34,7 @@ initialize:
 
 check_requirements:
   script:
-    - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
+    - test -f requirements.txt && pip install -r requirements.txt
 
 test:
   script:
