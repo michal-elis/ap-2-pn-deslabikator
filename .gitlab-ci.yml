@@ -34,8 +34,8 @@ initialize:
 
 check_requirements:
   script:
-    - test -f requirements.txt && pip install -r requirements.txt
-
+    - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
+    
 test:
   script:
     - pytest --doctest-modules --cov=. --cov-fail-under=66
