@@ -29,6 +29,11 @@ initialize:
     - pip install flake8 flake8-docstrings pytest pytest-cov pdoc
     # check if requirements exist if so install them
     - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
+    # Test with pytest
+    - pytest --doctest-modules --cov=. --cov-fail-under=66
+    # Lint with flake8
+    - flake8 .
+
 
 test:
   script:
