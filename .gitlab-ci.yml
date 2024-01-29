@@ -27,11 +27,15 @@ initialize:
     # install dependecies
     - python -m pip install --upgrade pip
     - pip install flake8 flake8-docstrings pytest pytest-cov pdoc
-    - if [ -f requirements.txt ]
-    - then
-    -   pip install -r requirements.txt
-    - fi 
+    #- if: [ -f requirements.txt ]
+    #- then
+    #-   pip install -r requirements.txt
+    #- fi 
 
+check_requirements:
+  stage: install
+  script:
+    - if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
 
 test:
   script:
