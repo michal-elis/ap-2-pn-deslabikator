@@ -21,28 +21,31 @@ before_script:
   - python3 --version
   - python3 -m venv venv
   - source venv/bin/activate
-
-initialize:
-  script:
-    # install dependecies
-    - python -m pip install --upgrade pip
-    - pip install flake8 flake8-docstrings pytest pytest-cov pdoc
-    # check if requirements exist if so install them
-    - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
-    # Test with pytest
-    - pytest --doctest-modules --cov=. --cov-fail-under=66
-    - pwd
-    - ls
-    # Lint with flake8
-    #- flake8 .
-
+  # install dependecies
+  - python -m pip install --upgrade pip
+  - pip install flake8 flake8-docstrings pytest pytest-cov pdoc
+  # check if requirements exist if so install them
+  - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
 
 test:
   script:
     # Test with pytest
     - pytest --doctest-modules --cov=. --cov-fail-under=66
+
+lint:
+  script:
     # Lint with flake8
-    - flake8 .
+    - flake8 . --exclude venv
+
+documentation:
+  script:
+    # documentation via pdoc
+    - pdoc -o docs/ `ls --hide=*.md --hide=*.txt --hide=__pycache__`
+    - ls docs/
+    - mv docs/html/ ../public/
+  artifacts:
+    paths:
+      - public
 
 
 pages:
