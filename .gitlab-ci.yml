@@ -17,9 +17,9 @@ cache:
   paths:
     - .cache/pip
 
-before_script:
+initialize:
   stage: build
-  sript:
+  script:
   - python3 --version
   - python3 -m venv venv
   - source venv/bin/activate
