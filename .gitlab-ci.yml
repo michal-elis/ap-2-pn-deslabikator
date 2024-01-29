@@ -42,7 +42,7 @@ documentation:
     # documentation via pdoc
     - pdoc -o docs/ `ls --hide=*.md --hide=*.txt --hide=__pycache__`
     - ls docs/
-    - mv docs/ ../public/
+    - mv docs/ public/
   artifacts:
     paths:
       - public
