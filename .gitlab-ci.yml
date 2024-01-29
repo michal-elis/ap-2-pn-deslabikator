@@ -27,21 +27,16 @@ initialize:
     # install dependecies
     - python -m pip install --upgrade pip
     - pip install flake8 flake8-docstrings pytest pytest-cov pdoc
-    #- if: [ -f requirements.txt ]
-    #- then
-    #-   pip install -r requirements.txt
-    #- fi 
-
-check_requirements:
-  script:
+    # check if requirements exist if so install them
     - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
-    
+
 test:
   script:
+    # Test with pytest
     - pytest --doctest-modules --cov=. --cov-fail-under=66
-  artifacts:
-    paths:
-      - build/*
+    # Lint with flake8
+    - flake8 .
+
 
 pages:
   script:
