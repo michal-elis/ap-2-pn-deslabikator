@@ -18,6 +18,8 @@ cache:
     - .cache/pip
 
 before_script:
+  stage: build
+  sript:
   - python3 --version
   - python3 -m venv venv
   - source venv/bin/activate
@@ -27,6 +29,7 @@ before_script:
   - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
 
 test:
+  stage: build
   script:
     # install pytest
     - pip install pytest pytest-cov
@@ -34,6 +37,7 @@ test:
     - pytest --doctest-modules --cov=. --cov-fail-under=66
 
 lint:
+  stage: build
   script:
     # install flake8
     - pip install flake8 flake8-docstrings
@@ -41,6 +45,7 @@ lint:
     - flake8 . --exclude venv
 
 documentation:
+  stage: build
   script:
     # install pytest
     - pip install pdoc
