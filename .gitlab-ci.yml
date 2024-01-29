@@ -23,23 +23,28 @@ before_script:
   - source venv/bin/activate
   # install dependecies
   - python -m pip install --upgrade pip
-  - pip install flake8 flake8-docstrings pytest pytest-cov pdoc
   # check if requirements exist if so install them
   - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
 
 test:
   script:
+    # install pytest
+    - pip install pytest pytest-cov
     # Test with pytest
     - pytest --doctest-modules --cov=. --cov-fail-under=66
 
 lint:
   script:
+    # install flake8
+    - pip install flake8 flake8-docstrings
     # Lint with flake8
     - flake8 . --exclude venv
 
 documentation:
   script:
-    # documentation via pdoc
+    # install pytest
+    - pip install pdoc
+    # build documentation via pdoc
     - pdoc -o docs/ `ls --hide=*.md --hide=*.txt --hide=__pycache__`
     - ls docs/
     - mv docs/ public/
