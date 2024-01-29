@@ -32,6 +32,7 @@ initialize:
     # Test with pytest
     - pytest --doctest-modules --cov=. --cov-fail-under=66
     - pwd
+    - ls
     # Lint with flake8
     #- flake8 .
 
