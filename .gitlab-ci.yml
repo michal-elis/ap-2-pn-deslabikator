@@ -45,8 +45,14 @@ documentation:
     # install pytest
     - pip install pdoc
     # build documentation via pdoc
-    - pdoc -o docs/ `ls --hide=*.md --hide=*.txt --hide=__pycache__`
-    - ls docs/
+    - if [ -e __init__.py ]
+        then
+          pdoc -o docs/ `pwd`
+        else
+          pdoc -o docs/ `ls --hide=*.md --hide=*.txt --hide=__pycache__`
+        fi
+
+    #- pdoc -o docs/ `ls --hide=*.md --hide=*.txt --hide=__pycache__`
     - mv docs/ public/
   artifacts:
     paths:
