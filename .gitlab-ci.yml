@@ -45,7 +45,7 @@ lint:
 documentation:
   stage: build
   script:
-    # install pytest
+    # install pdoc
     - pip install pdoc
     # build documentation via pdoc
     - if [ -e __init__.py ];
