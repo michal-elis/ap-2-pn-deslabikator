@@ -66,6 +66,7 @@ pages:
   stage: deploy
   script:
     - echo "The site will be deployed to $CI_PAGES_URL"
+    - ls public/
   artifacts:
     paths:
       - public
