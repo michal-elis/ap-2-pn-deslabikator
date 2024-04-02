@@ -17,7 +17,7 @@ Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z před
 
 1. Nastavte si přístup na GitHub z vašeho počítače pomocí SSH klíče, [návod](https://moodle.utb.cz/mod/page/view.php?id=654046) je k dispozici na Moodle.
 
-1. Proveďte fork tohoto repozitáře. Použijte tlačítko Fork na https://git.fai.utb.cz/tureckova/ap2pn-projekt
+1. Proveďte Fork tohoto repozitáře: použijte tlačítko Fork na https://git.fai.utb.cz/tureckova/ap2pn-projekt.
         
 1. Naklonujte si svůj repozitář a nastavte si upstream:
 
@@ -37,15 +37,15 @@ Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z před
 
         git pull upstream main
     
-1. Spusťte defaultní pipeline Pipelines > Run Pipelines. Example projekt by měl projít bez chyb (:check_mark_button: Passed) všechny fáze Pipeline (Build > Pipelines). Pod tlačítkem dowload :down_arrow: vpravo na řádku je možné stáhnout artifacts a prohlédnout si vygenerovanou dokumentaci.Ac
+1. Spusťte defaultní pipeline Pipelines > Run Pipelines. Vzorový projekt by měl projít bez chyb (Passed) všechny fáze Pipeline (Build > Pipelines). Pod tlačítkem *dowload* vpravo na řádku je možné stáhnout **Artifacts** a prohlédnout si vygenerovanou dokumentaci.
     
 1. Commitujte vaše změny po logických oddílech, každý commit s výstižným popisem:
 
         git commit -m "logical commit description"
     
-1. Proveďte push vašich změn na server a zkontolujte, že prochází (:check_mark_button: Passed) všechny fáze Pipeline (Build > Pipelines):
+1. Proveďte push vašich změn na server a zkontolujte, že prochází (Passed) všechny fáze Pipeline (Build > Pipelines):
 
         git push
     
-1. Přizvete vyučujici tureckova@utb.cz k upravam projektu: Manage > Members > Invite members, zvolte roli Developer.  
+1. Přizvěte vyučující tureckova@utb.cz k úpravám projektu: Manage > Members > Invite members, zvolte roli Developer.  
 Do moodlu odejte odkaz na gitlab stránku vašeho projektu - url adresu forku vašeho projektu.
