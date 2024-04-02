@@ -2,6 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*/__pycache__/
 
 # C extensions
 *.so
@@ -91,3 +92,9 @@ ENV/
 
 # IDEA
 .idea/
+
+# Visual Studio Code settings
+.vscode/
+
+# Ignore doc folder
+doc/
