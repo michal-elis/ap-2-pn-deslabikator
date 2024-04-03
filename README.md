@@ -47,5 +47,9 @@ Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z před
 
         git push
     
+1. V případě, že ve svém projektu používáte externí knihovny, zahrňte v repozitáři soubor requirements.txt obsahující seznam použitých knihoven a jejich verzí. Seznam je možné v rámci python environmentu vytvořit následujícím příkazem:
+
+        python -m pip freeze > requirements.txt
+
 1. Přizvěte vyučující tureckova@utb.cz k úpravám projektu: Manage > Members > Invite members, zvolte roli Developer.  
 Do moodlu odejte odkaz na gitlab stránku vašeho projektu - url adresu forku vašeho projektu.
