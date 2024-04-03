@@ -6,7 +6,7 @@ Tento repozitář slouží jako podklad a vzor pro závěrečný projekt z před
 * Témata projektu jste si volili dříve na Moodle.
 * Kód musí být okomentovaný/dokumentovaný (ideálně všechny entity).
 * Kód musí obsahovat unit testy (pokrytí kódu testy by se mělo blížit 100%, testy ověřují jak validní tak chybné použití funkcí).
-* Zdrojový kód musí projít kontrolním testem na gitlabu definované v gitlab-cli.yml na vzorovém [repozitáři](https://git.fai.utb.cz/tureckova/ap2pn-projekt):
+* Zdrojový kód musí projít kontrolním testem na gitlabu definované v gitlab-ci.yml na vzorovém [repozitáři](https://git.fai.utb.cz/tureckova/ap2pn-projekt):
     * Musí projít všechny testy pomocí knihovny pdoc s pokrytím kódu minimálně 66%.
     * Kontola pomocí flake8 a flake8-docstrings nevrací žádné chyby.
     * Automaticky se vygeneruje dokumentace z docstringů pomocí knihovny pdoc.
