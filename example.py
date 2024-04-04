@@ -6,6 +6,7 @@ Následuje ukázka vzorové funkce.
 """
 import numpy as np
 
+
 def compute(x):
     """Funkce počítá výsledek výrazu pro zadaný agrument x.
 
@@ -15,7 +16,7 @@ def compute(x):
     >>> compute(3)
     3
     """
-    x2 = np.multiply(x,x)
+    x2 = np.multiply(x, x)
     return x2 - 2 * x
 
 
