@@ -43,7 +43,7 @@ lint:
     - flake8 . --exclude venv
 
 generate_doc:
-  stage: documentation
+  stage: build
   script:
     # install pdoc
     - pip install pdoc
