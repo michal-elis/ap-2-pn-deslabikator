@@ -18,21 +18,18 @@ cache:
     - .cache/pip
 
 stages:
-  - build
   - test
   - documentation
   - deploy
 
-build:
-  stage: build
-  script:
-    - python3 --version
-    - python3 -m venv venv
-    - source venv/bin/activate
-    # install dependecies
-    - python -m pip install --upgrade pip
-    # check if requirements exist if so install them
-    - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
+before_script:
+  - python3 --version
+  - python3 -m venv venv
+  - source venv/bin/activate
+  # install dependecies
+  - python -m pip install --upgrade pip
+  # check if requirements exist if so install them
+  - if [ -e requirements.txt ]; then pip install -r requirements.txt; fi
 
 test:
   stage: test
