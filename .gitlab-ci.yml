@@ -17,7 +17,15 @@ cache:
   paths:
     - .cache/pip
 
-before_script:
+stages:
+  - build
+  - test
+  - documentation
+  - deploy
+
+build:
+  stage: build
+  script:
   - python3 --version
   - python3 -m venv venv
   - source venv/bin/activate
@@ -43,7 +51,7 @@ lint:
     - flake8 . --exclude venv
 
 generate_doc:
-  stage: build
+  stage: documentation
   script:
     # install pdoc
     - pip install pdoc
