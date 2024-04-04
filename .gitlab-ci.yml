@@ -19,7 +19,7 @@ cache:
 
 stages:
   - test
-  - documentation
+  - generate_doc
   - deploy
 
 before_script:
@@ -47,8 +47,8 @@ lint:
     # Lint with flake8
     - flake8 . --exclude venv
 
-generate_doc:
-  stage: documentation
+documentation:
+  stage: generate_doc
   script:
     # install pdoc
     - pip install pdoc
