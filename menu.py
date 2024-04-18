@@ -2,21 +2,12 @@
 menu.py 
 Aby byl hlavní soubor programu čitelnější, jsou texty pro výpis jednotlivých menu umístěny zde.
 """
-import textwrap, os, sys, funkce
-def cls():
-    """
-       Funkce pro vyčištění textu na obrazovce
-    """
-    if os.name == "nt":
-        prikaz = "cls" # Windows
-    else:
-        prikaz = "clear" # Linux
-
-    os.system(prikaz) 
+import textwrap
 
 
 
-
+Info = """*** INFO ***
+Tento program vznikl v dubnu 2024 jako semestrální práce Michala Elise do předmětu 'Pokročilé nástroje pro vývoj' na FAI Univerzity Tomáše Bati. Více informací najdete v souboru Readme.md"""
    
 Spusteni = textwrap.fill("Výtejte v programu Deslabikátor. Tento program má za úkol demonstrovat, že lidský mozek nečte slova \
 po jednotlivých písmenech, ale jako množinu znaků, které nemusí být ve správném pořadí. Stačí aby bylo na správném místě první \
