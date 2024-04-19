@@ -54,17 +54,7 @@ def FunkceMainMenu():
             print("Nashledanou\n")
             sys.exit()
 
-
-funkce.cls()
-print(menu.Spusteni)
-FunkceMainMenu()
-# VystupniText = FunkceMainMenu()
-# funkce.cls()
-# FunkceMenu2(VystupniText)
-
-# VstupniText = []
-# Deslabikovano = []
-# VstupniText = input("Vložte vstupní text: \n \n \t \t")
-
-# VystupniText = funkce.deslabikace(VstupniText)
-# print(VystupniText)
+if __name__ == "__main__":
+    funkce.cls()
+    print(menu.Spusteni)
+    FunkceMainMenu()
