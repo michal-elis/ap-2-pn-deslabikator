@@ -13,15 +13,15 @@ def deslabikace(VstupniText):
     >>> deslabikace("a")
     'a'
     >>> deslabikace("ab")
-    "ab"
+    'ab'
     >>> deslabikace("abc")
-    "abc"
+    'abc'
     >>> deslabikace("abcd")
-    "acbd"
+    'acbd'
     >>> deslabikace("***Zdar***")
-    "***Zadr***"
+    '***Zadr***'
     >>> deslabikace("-4()*/abcd845")
-    "-4()*/acbd845"
+    '-4()*/acbd845'
     >>> deslabikace("123456")
     Traceback (most recent call last):
         ...
