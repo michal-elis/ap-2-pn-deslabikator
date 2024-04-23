@@ -40,7 +40,7 @@ from funkce import cls
     cls()
 
     # Argument os.system. by měl být clear
-    assert os.system.call_args == (("clear",),)"""
+    assert os.system.call_args == (("clear",),)
 
 def test_cls_other():
-    os.name != "nt" 
+    os.name != "nt" """

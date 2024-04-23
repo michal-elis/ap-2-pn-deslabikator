@@ -11,7 +11,7 @@ def deslabikace(VstupniText):
     v jednotlivých slovech.
     Příklady:
     >>> deslabikace("a")
-    "a"
+    'a'
     >>> deslabikace("ab")
     "ab"
     >>> deslabikace("abc")
@@ -40,7 +40,9 @@ def deslabikace(VstupniText):
         Kontroluje, jestli nejsou před prvním písmenem ještě nějaké jiné znaky (např. uvozovky nebo závorky),
         a to stejné se kontroluje i od konce. Vytvoří se množina znaků na začátku slova, která se nemění, prostředek,
         který se promýchá a opět množina na konci slova, která se nemění.
-        PŘÍKLAD: ***Python*** = [['*', '*', '*', 'P'], 'o', 'h', 'y', 't', ['n', '*', '*', '*']]
+        PŘÍKLAD: 
+        >>> mixer("***Ahoj***")
+        [['*', '*', '*', 'A'], 'o', 'h', ['j', '*', '*', '*']]
         """
         index_Z = 1  # začátek prohazované části
         index_K = -1  # konec prohazované části
