@@ -16,7 +16,8 @@ def test_deslabikace():
     assert deslabikace("***Zdar***") == "***Zadr***"
     assert deslabikace("-4()*/abcd845") == "-4()*/acbd845"
     #test čísla
-    assert deslabikace("123456") == "123456"
+    with pytest.raises(ValueError):
+        deslabikace("123456")
     #test prázdného zadání
     with pytest.raises(ValueError):
         deslabikace("")
