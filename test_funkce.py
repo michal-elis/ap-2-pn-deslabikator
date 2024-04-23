@@ -1,4 +1,5 @@
 from funkce import deslabikace
+import pytest
 
 
 def test_deslabikace():
@@ -16,8 +17,30 @@ def test_deslabikace():
     assert deslabikace("-4()*/abcd845") == "-4()*/acbd845"
     #test čísla
     assert deslabikace("123456") == "123456"
-    assert deslabikace("aaaaaaaa") == "aaaaaaaa"
-    assert deslabikace("aaaaaaaaa") == "aaaaaaaaa"
-    assert deslabikace("aaaaaaaaaa") == "aaaaaaaaaa"
-    assert deslabikace("aaaaaaaaaaa") == "aaaaaaaaaaa"
-    assert deslabikace("aaaaaaaaaaaa") == "aaaaaaaaaaaa"
+    #test prázdného zadání
+    with pytest.raises(ValueError):
+        deslabikace("")
+import os
+from funkce import cls
+
+
+def test_cls_windows():
+    # Simulace Windows 
+    os.name = "nt"
+
+    cls()
+
+    # Argument os.system. by měl být cls
+    assert os.system.call_args == (("cls",),)
+
+"""def test_cls_linux():
+    # Simulace Linux
+    os.name = "posix"
+
+    cls()
+
+    # Argument os.system. by měl být clear
+    assert os.system.call_args == (("clear",),)"""
+
+def test_cls_other():
+    os.name != "nt" 

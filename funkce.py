@@ -9,6 +9,27 @@ def deslabikace(VstupniText):
     Na vstupu má uživatelem zadaný text a na výstupu rozházený text.
     Obsahuje vnořenou funkci mixer, která se stará o zpřeházení písmen
     v jednotlivých slovech.
+    Příklady:
+    >>> deslabikace("a")
+    "a"
+    >>> deslabikace("ab")
+    "ab"
+    >>> deslabikace("abc")
+    "abc"
+    >>> deslabikace("abcd")
+    "acbd"
+    >>> deslabikace("***Zdar***")
+    "***Zadr***"
+    >>> deslabikace("-4()*/abcd845")
+    "-4()*/acbd845"
+    >>> deslabikace("123456")
+    Traceback (most recent call last):
+        ...
+    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.
+    >>> deslabikace("")
+    Traceback (most recent call last):
+        ...
+    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.
     """
     Deslabikovano = []
 
@@ -72,39 +93,39 @@ def cls():
     """
     if os.name == "nt":
         prikaz = "cls"  # Windows
-
+        os.system(prikaz)
     elif os.name == "posix":
         prikaz = "clear"  # Linux
-
+        os.system(prikaz)
     else:
-        raise ValueError("Nepodporovaný operační systém.")
+        #raise ValueError("Nepodporovaný operační systém.")
+        print("\n\n\n\n")
 
-    os.system(prikaz)
-
+    
 def NactiSoubor():
     """Tato funkce získá od uživatele data z textového souboru"""
     print("Soubor umístěte do složky 'soubory', která leží v kořenovém adresíři tohoto programu a zadejte název souboru, který chcete načíst.")
-    nazev_souboru = input("Předpokládá se kódování utf-8. \n\n\t\t:")
+    nazevSouboru = input("Předpokládá se kódování utf-8. \n\n\t\t:")
 
     # Získat cestu k složce "soubory" umístěné ve stejné složce jako zdrojový kód
-    cesta_ke_slozce_soubory = os.path.join(os.path.dirname(__file__), "soubory")
+    cestaSlozka = os.path.join(os.path.dirname(__file__), "soubory")
 
     
-    if not os.path.exists(cesta_ke_slozce_soubory): # Kontrola, jestli někdo složku nesmazal
+    if not os.path.exists(cestaSlozka): # Kontrola, jestli někdo složku nesmazal
         print("Složka 'soubory' neexistuje.")
         return None
 
     # Získat úplnou cestu k cílovému souboru
-    cesta_k_souboru = os.path.join(cesta_ke_slozce_soubory, nazev_souboru)
+    cestaSoubor = os.path.join(cestaSlozka, nazevSouboru)
 
     # Zkontrolovat, zda soubor existuje
-    if not os.path.exists(cesta_k_souboru):
+    if not os.path.exists(cestaSoubor):
         print("Zadaný soubor neexistuje.")
         #return None
 
     # Načíst obsah souboru
     try:
-        with open(cesta_k_souboru, 'r', encoding='utf-8') as file:
+        with open(cestaSoubor, 'r', encoding='utf-8') as file:
             obsah = file.read()
         return obsah
     except Exception as e:
