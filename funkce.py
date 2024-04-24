@@ -29,13 +29,11 @@ def deslabikace(VstupniText):
     >>> deslabikace("123456")
     Traceback (most recent call last):
         ...
-    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže 
-    dojít k přeházení.
+    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.
     >>> deslabikace("")
     Traceback (most recent call last):
         ...
-    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže 
-    dojít k přeházení.
+    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.
     """
     Deslabikovano = []
 
@@ -83,8 +81,7 @@ def deslabikace(VstupniText):
 
     # Kontrolujeme, jestli zadaný řetězec obsahuje písmena
     if not any(znak.isalpha() for znak in VstupniText):
-        raise ValueError("Vaše zadání neobsahuje žádná písmena, takže nemůže \
-                         dojít k přeházení.")
+        raise ValueError("Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.")
 
     else:
         # Cyklus projede a zpracuje všechna slova v listu
