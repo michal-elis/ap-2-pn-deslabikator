@@ -60,6 +60,7 @@ def deslabikace(VstupniText):
                 index_Z += 1
             else:
                 break
+            
         # tento cyklus zjistí, kde končí písmena
         for i, item in enumerate(reversed(slovo)):
             if not (item.isalpha()):
