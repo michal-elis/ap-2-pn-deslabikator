@@ -1,5 +1,9 @@
 """Tento modul obsahuje hlavní funkce."""
-import random, os, sys, getpass, time
+import random
+import os
+import sys
+import getpass
+import time
 
 
 def deslabikace(VstupniText):
@@ -25,69 +29,99 @@ def deslabikace(VstupniText):
     >>> deslabikace("123456")
     Traceback (most recent call last):
         ...
-    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.
+    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k \
+    přeházení.
     >>> deslabikace("")
     Traceback (most recent call last):
         ...
-    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.
+    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k \
+    přeházení.
     """
     Deslabikovano = []
 
     def mixer(slovo):
         """
-        Funkce pro promýchání písmen, která se použije pro slova delší než 4 znaky.
+        Funkce pro promýchání písmen, která se použije pro slova delší než 4 \
+        znaky.
 
-        Kontroluje, jestli nejsou před prvním písmenem ještě nějaké jiné znaky (např. uvozovky nebo závorky),
-        a to stejné se kontroluje i od konce. Vytvoří se množina znaků na začátku slova, která se nemění, prostředek,
-        který se promýchá a opět množina na konci slova, která se nemění.
-        PŘÍKLAD: 
+        Kontroluje, jestli nejsou před prvním písmenem ještě nějaké jiné \
+        znaky (např. uvozovky nebo závorky), a to stejné se kontroluje i od \
+        konce. Vytvoří se množina znaků na začátku slova, která se nemění, \
+        prostředek, který se promýchá a opět množina na konci slova, která se \
+        nemění.
+        PŘÍKLAD:
         >>> mixer("***Ahoj***")
         [['*', '*', '*', 'A'], 'o', 'h', ['j', '*', '*', '*']]
         """
         index_Z = 1  # začátek prohazované části
         index_K = -1  # konec prohazované části
-        for i in range(len(slovo)):  # tento cyklus zjistí, kde začínají písmena
+
+        # tento cyklus zjistí, kde začínají písmena
+        for i in range(len(slovo)):
             if not slovo[i].isalpha():
                 index_Z += 1
             else:
                 break
-        for i, item in enumerate(reversed(slovo)):  # tento cyklus zjistí, kde končí písmena
+        # tento cyklus zjistí, kde končí písmena
+        for i, item in enumerate(reversed(slovo)):
             if not (item.isalpha()):
                 index_K -= 1
             else:
                 break
-        prostredek = slovo[index_Z:index_K]  # Vybere všechny "prostřední" prvky určené pro zamýchání
-        random.shuffle(prostredek)  # Zamíchá prostřední část seznamu
-        return [slovo[:index_Z]] + prostredek + [slovo[index_K:]]  # Spojí první písmeno, zamíchanou prostřední část a poslední písmeno
+
+        # Vybere všechny "prostřední" prvky určené pro zamýchání
+        prostredek = slovo[index_Z:index_K]
+
+        # Zamíchá prostřední část seznamu
+        random.shuffle(prostredek)
+
+        # Spojí první písmeno, zamíchanou prostřední část a poslední písmeno
+        return [slovo[:index_Z]] + prostredek + [slovo[index_K:]]
 
     JednotlivaSlova = VstupniText.split()  # Rozdělení textu na list slov
 
     # Kontrolujeme, jestli zadaný řetězec obsahuje písmena
     if not any(znak.isalpha() for znak in VstupniText):
-        raise ValueError("Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.")
-        #print("Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.\n\n")
-        #sys.exit()
+        raise ValueError("Vaše zadání neobsahuje žádná písmena, takže nemůže \
+                         dojít k přeházení.")
 
     else:
-        for i in range(len(JednotlivaSlova)):  # Cyklus projede a zpracuje všechna slova v listu
-            if len(JednotlivaSlova[i]) <= 3:  # Pokud slovo obsahuje tři nebo méně písmen, nic se nemění
+        # Cyklus projede a zpracuje všechna slova v listu
+        for i in range(len(JednotlivaSlova)):
+            # Pokud slovo obsahuje tři nebo méně písmen, nic se nemění
+            if len(JednotlivaSlova[i]) <= 3:
                 Deslabikovano.append(JednotlivaSlova[i])
 
-            elif len(JednotlivaSlova[i]) == 4:  # Pokud slovo obsahuje čtyři písmena, první a poslední se nemění a prostředek prohodíme
-                Deslabikovano.append(JednotlivaSlova[i][0] + JednotlivaSlova[i][2] + JednotlivaSlova[i][1] + JednotlivaSlova[i][3])
+            # Pokud slovo obsahuje čtyři písmena, první a poslední se nemění a
+            # prostředek prohodíme
+            elif len(JednotlivaSlova[i]) == 4:
+                Deslabikovano.append(JednotlivaSlova[i][0] +
+                                     JednotlivaSlova[i][2] +
+                                     JednotlivaSlova[i][1] +
+                                     JednotlivaSlova[i][3])
 
             else:  # U delších slov se písmena náhodně promíchají
                 while True:
-                    pismena = list(JednotlivaSlova[i])  # Udělá se list z písmen slova
-                    PrehazenaPismena = mixer(pismena)  # Algoritmus proháže písmena
-                    PrehazeneSlovo = ''.join(''.join(vnitrek) for vnitrek in PrehazenaPismena)  # spojím položky seznamu (včetně dalších seznamů) do seznamu
+                    # Udělá se list z písmen slova
+                    pismena = list(JednotlivaSlova[i])
 
-                    if PrehazeneSlovo != JednotlivaSlova[i]:  # Podmínka kontroluje, jestli došlo k přeházení a nevzniklo nám náhodou stejné slovo, jako bylo na vstupu
+                    # Algoritmus proháže písmena
+                    PrehazenaPismena = mixer(pismena)
+
+                    # spojí položky seznamu (včetně dalších seznamů) do seznamu
+                    PrehazeneSlovo = ''.join(''.join(vnitrek) for vnitrek
+                                             in PrehazenaPismena)
+
+                    # Podmínka kontroluje, jestli došlo k přeházení a
+                    # nevzniklo nám náhodou stejné slovo, jako bylo na vstupu
+                    if PrehazeneSlovo != JednotlivaSlova[i]:
                         break
 
-                Deslabikovano.append(PrehazeneSlovo)  # Nakonec se upravené slovo přidá do listu
+                # Nakonec se upravené slovo přidá do listu
+                Deslabikovano.append(PrehazeneSlovo)
 
     return (" ".join(Deslabikovano))
+
 
 def cls():
     """
@@ -100,20 +134,22 @@ def cls():
         prikaz = "clear"  # Linux
         os.system(prikaz)
     else:
-        #raise ValueError("Nepodporovaný operační systém.")
+        # pokud není systém rozpoznán, jenom odřádkuje
         print("\n\n\n\n")
 
-    
+
 def NactiSoubor():
     """Tato funkce získá od uživatele data z textového souboru"""
-    print("Soubor umístěte do složky 'soubory', která leží v kořenovém adresíři tohoto programu a zadejte název souboru, který chcete načíst.")
+    print("Soubor umístěte do složky 'soubory', která leží v kořenovém \
+          adresáři tohoto programu a zadejte název souboru, který chcete \
+          načíst.")
     nazevSouboru = input("Předpokládá se kódování utf-8. \n\n\t\t:")
 
-    # Získat cestu k složce "soubory" umístěné ve stejné složce jako zdrojový kód
+    # Získat cestu k složce "soubory" ve stejné složce jako zdrojový kód
     cestaSlozka = os.path.join(os.path.dirname(__file__), "soubory")
 
-    
-    if not os.path.exists(cestaSlozka): # Kontrola, jestli existuje složka 'soubory'
+    # Kontrola, jestli existuje složka 'soubory'
+    if not os.path.exists(cestaSlozka):
         raise FileNotFoundError("Složka 'Soubory' neexistuje.")
 
     # Získat úplnou cestu k cílovému souboru
@@ -129,27 +165,29 @@ def NactiSoubor():
         return obsah
     except Exception as chyba:
         raise SystemError("Při načítání souboru došlo k chybě:", str(chyba))
-       
-    
-def UlozSoubor(VystupniText):
-    soubor = input("Vložte název souboru. Soubor bude uložen do složky 'soubory' v kořenovém adresáři programu. POZOR - Pokud soubor již existuje, dojde k jeho přepsání \n\n\t")
 
-    # Vytvoření cesty k souboru ve složce 'data'
-    data_folder = "data"
+
+def UlozSoubor(VystupniText):
+    soubor = input("Vložte název souboru. Soubor bude uložen do složky \
+                   'soubory' v kořenovém adresáři programu. POZOR - Pokud \
+                   soubor již existuje, dojde k jeho přepsání \n\n\t")
+
+    # Vytvoření cesty k souboru ve složce 'soubory'
     file_path = os.path.join("soubory", soubor)
 
-    if not os.path.exists("soubory"):  # Zkontroluje, zda složka neexistuje a pokud ne, tak ji hned vyrobíme.
+    # Zkontroluje, zda složka neexistuje a pokud ne, tak ji hned vyrobíme.
+    if not os.path.exists("soubory"):
         os.makedirs("soubory")
 
-    # Otevření souboru s kódováním UTF-8 pro zápis
+    # Otevření souboru s kódováním UTF-8 a následný zápis.
     with open(file_path, "w", encoding="utf-8") as file:
-    # Zápis textu do souboru
         file.write(VystupniText)
 
 
-
 def Hra(VystupniText, VstupniText):
-    print("Po stisku klávesy enter se zobrazí zpřeházený text a začne se počítat čas. Začněte ihned číst text a po dočtení skitskněte opět klávesu enter")
+    print("Po stisku klávesy enter se zobrazí zpřeházený text a začne se \
+          počítat čas. Začněte ihned číst text a po dočtení skitskněte opět \
+          klávesu enter")
     getpass.getpass(prompt="")
     ZacatekA = time.time()
     cls()
@@ -158,7 +196,9 @@ def Hra(VystupniText, VstupniText):
     KonecA = time.time()
     cls()
     CasA = KonecA - ZacatekA
-    print(f"Hotovo, přelouskání zpřeházeného textu Vám trvalo {CasA:.2f} sekund.\n Nyní stiskněte enter a ihned začněte číst text v originálním znění. Po dočtení opět stiskněte klávesu enter. ")
+    print(f"Hotovo, přelouskání zpřeházeného textu Vám trvalo {CasA:.2f} \
+          sekund.\n Nyní stiskněte enter a ihned začněte číst text v \
+          originálním znění. Po dočtení opět stiskněte klávesu enter. ")
     getpass.getpass(prompt="")
     cls()
     ZacatekB = time.time()
@@ -168,12 +208,14 @@ def Hra(VystupniText, VstupniText):
     cls()
     CasB = KonecB - ZacatekB
     if CasA > CasB:
-        print(f"Přečtení originálního textu Vám trvalo {CasB:.2f} sekund.\nTo je o {(CasA - CasB):.2f} sekund rychleji.")
+        print(f"Přečtení originálního textu Vám trvalo {CasB:.2f} sekund.\nTo \
+              je o {(CasA - CasB):.2f} sekund rychleji.")
     elif CasA < CasB:
-        print(f"Rozházený text jste přečetli o {(CasB - CasA):.2f} sekund rychleji, než originál!\n Buď jste génius nebo šílenec!!!")
+        print(f"Rozházený text jste přečetli o {(CasB - CasA):.2f} sekund \
+              rychleji, než originál!\n Buď jste génius nebo šílenec!!!")
     else:
         print("Časy jsou shodné!!!")
-    
+
     print("\n\n\t Stiskněte enter pro ukončení")
     getpass.getpass(prompt="")
     sys.exit()

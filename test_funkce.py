@@ -1,64 +1,64 @@
 from funkce import deslabikace
 import math
-
 import pytest
+import unittest
+import os
+from funkce import UlozSoubor
 
 
 def test_deslabikace():
     """
     Test funkce deslabikace.
     """
-    #test krátkých slov
+    # test krátkých slov
 
-    #test 1 písmeno
+    # test 1 písmeno
     assert deslabikace("a") == "a"
     assert deslabikace("x") == "x"
     assert deslabikace("B") == "B"
-    
-    #test 2 písmena
+
+    # test 2 písmena
     assert deslabikace("ab") == "ab"
     assert deslabikace("xy") == "xy"
     assert deslabikace("XY") == "XY"
 
-    #test 3 písmena
+    # test 3 písmena
     assert deslabikace("abc") == "abc"
     assert deslabikace("xyz") == "xyz"
     assert deslabikace("XYZ") == "XYZ"
 
-    #test 4 písmena
+    # test 4 písmena
     assert deslabikace("abcd") == "acbd"
     assert deslabikace("odla") == "olda"
     assert deslabikace("OdLa") == "OLda"
 
-    #test nestandartního zadání
+    # test nestandartního zadání
     assert deslabikace("***Zdar***") == "***Zadr***"
     assert deslabikace("***ZdAr***") == "***ZAdr***"
     assert deslabikace("-4()*/abcd845") == "-4()*/acbd845"
     assert deslabikace("-4()*/abcd845") == "-4()*/acbd845"
     assert deslabikace("kola115") == "kloa115"
-    #test čísla
+
+    # test čísla
     with pytest.raises(ValueError):
         deslabikace("37.55")
     with pytest.raises(ValueError):
         deslabikace("37,55")
     with pytest.raises(ValueError):
         deslabikace("123456")
-    #test prázdného zadání
+
+    # test prázdného zadání
     with pytest.raises(ValueError):
         deslabikace("")
-    #test neakceptovtelného zadání
+
+    # test neakceptovtelného zadání
     with pytest.raises(ValueError):
         deslabikace("*-+6512/*-7/()&@#")
-    #test neočekávaného zadání
+
+    # test neočekávaného zadání
     with pytest.raises(ValueError):
         deslabikace(str(math.pi))
-    
 
-import unittest
-import os
-
-# Import the function you want to test
-from funkce import UlozSoubor  # Replace 'your_module' with your module name
 
 class TestUlozSoubor(unittest.TestCase):
 
@@ -76,9 +76,10 @@ class TestUlozSoubor(unittest.TestCase):
     def test_UlozSoubor(self):
         # Simulate user input for the filename
         filename = 'test.txt'  # Simulated user input
-        user_input = filename  # This would be provided by the user during runtime
+        # This would be provided by the user during runtime
+        user_input = filename
 
-        # Monkey patching the 'input' function to return our simulated user input
+        # Monkey patching 'input' function to return our simulated user input
         try:
             # Python 3.x
             import builtins
@@ -95,25 +96,26 @@ class TestUlozSoubor(unittest.TestCase):
 
             # Check if the file was created with the correct content
             file_path = os.path.join("soubory", filename)
-            self.assertTrue(os.path.exists(file_path))  # Check if the file exists
+            # Check if the file exists
+            self.assertTrue(os.path.exists(file_path))
 
             with open(file_path, "r", encoding="utf-8") as file:
-                saved_text = file.read().strip()  # Read content and strip whitespace
-                self.assertEqual(saved_text, self.output_text)  # Compare saved text with input
+                # Read content and strip whitespace
+                saved_text = file.read().strip()
+                # Compare saved text with input
+                self.assertEqual(saved_text, self.output_text)
 
         finally:
             # Restore the original 'input' function
             builtins.input = original_input
 
+
 if __name__ == '__main__':
     unittest.main()
 
-
-
-
-#test funkce cls neprochází
+# Test funkce cls neprochází, takže nebyl použit
 """def test_cls_windows():
-    # Simulace Windows 
+    # Simulace Windows
     os.name = "nt"
 
     cls()
