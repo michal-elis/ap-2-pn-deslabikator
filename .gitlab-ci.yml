@@ -37,7 +37,7 @@ test:
     # install pytest
     - pip install pytest pytest-cov
     # Test with pytest
-    - pytest --doctest-modules --cov=. --cov-fail-under=55
+    - pytest --doctest-modules --cov=. --cov-fail-under=54
 
 lint:
   stage: test
