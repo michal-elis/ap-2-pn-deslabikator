@@ -1,3 +1,4 @@
+"""Testovací soubor funkcí."""
 from funkce import deslabikace
 import math
 import pytest
@@ -7,8 +8,7 @@ from funkce import UlozSoubor
 
 
 def test_deslabikace():
-    """Test funkce deslabikace.
-    """
+    """Test funkce deslabikace."""
     # test krátkých slov
 
     # test 1 písmeno

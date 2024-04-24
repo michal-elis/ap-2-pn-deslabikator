@@ -1,5 +1,8 @@
 """Hlavní soubor programu Deslabikátor.
-obsahuje funkce menu, které se použijí pro interakci s uživatelem"""
+
+obsahuje funkce menu, které se použijí pro interakci s uživatelem
+"""
+
 import funkce
 import menu
 import sys

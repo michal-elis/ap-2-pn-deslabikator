@@ -1,5 +1,4 @@
-"""Tento modul obsahuje hlavní funkce.
-"""
+"""Tento modul obsahuje hlavní funkce."""
 
 import random
 import os
@@ -164,7 +163,6 @@ def NactiSoubor():
     except Exception as chyba:
         raise SystemError("Při načítání souboru došlo k chybě:", str(chyba))
 
-
 def UlozSoubor(VystupniText):
     """Funkce pro uložení přeskládaného textu do textového souboru."""
 
@@ -182,7 +180,6 @@ def UlozSoubor(VystupniText):
     # Otevření souboru s kódováním UTF-8 a následný zápis.
     with open(file_path, "w", encoding="utf-8") as file:
         file.write(VystupniText)
-
 
 def Hra(VystupniText, VstupniText):
     """Hra - čtení zpřeházeného textu a počítání času."""
