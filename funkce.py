@@ -29,11 +29,11 @@ def deslabikace(VstupniText):
     >>> deslabikace("123456")
     Traceback (most recent call last):
         ...
-    ValueError: Zadání neobsahuje žádná písmena!.
+    ValueError: Zadání neobsahuje žádná písmena!
     >>> deslabikace("")
     Traceback (most recent call last):
         ...
-    ValueError: Zadání neobsahuje žádná písmena!.
+    ValueError: Zadání neobsahuje žádná písmena!
     """
     Deslabikovano = []
 
