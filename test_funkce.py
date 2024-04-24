@@ -44,7 +44,7 @@ import os
 # Import the function you want to test
 from funkce import UlozSoubor  # Replace 'your_module' with your module name
 
-"""class TestUlozSoubor(unittest.TestCase):
+class TestUlozSoubor(unittest.TestCase):
 
     def setUp(self):
         # Set up any initial state needed for your tests
@@ -90,7 +90,7 @@ from funkce import UlozSoubor  # Replace 'your_module' with your module name
             builtins.input = original_input
 
 if __name__ == '__main__':
-    unittest.main()"""
+    unittest.main()
 
 
 
@@ -114,7 +114,7 @@ if __name__ == '__main__':
     # Argument os.system. by měl být clear
     assert os.system.call_args == (("clear",),)
 """
-import unittest
+"""import unittest
 import os
 from funkce import NactiSoubor  # Replace 'your_module' with your module name
 
@@ -161,4 +161,4 @@ def test_NactiSoubor_invalid_folder():
 if __name__ == '__main__':
     test_NactiSoubor_existing_file()
     test_NactiSoubor_non_existing_file()
-    test_NactiSoubor_invalid_folder()
+    test_NactiSoubor_invalid_folder()"""
