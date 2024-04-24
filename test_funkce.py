@@ -9,14 +9,30 @@ def test_deslabikace():
     Test funkce deslabikace.
     """
     #test krátkých slov
+
+    #test 1 písmeno
     assert deslabikace("a") == "a"
+    assert deslabikace("x") == "x"
+    assert deslabikace("B") == "B"
+    
+    #test 2 písmena
     assert deslabikace("ab") == "ab"
+    assert deslabikace("xy") == "xy"
+    assert deslabikace("XY") == "XY"
+
+    #test 3 písmena
     assert deslabikace("abc") == "abc"
+    assert deslabikace("xyz") == "xyz"
+    assert deslabikace("XYZ") == "XYZ"
+
     #test 4 písmena
     assert deslabikace("abcd") == "acbd"
     assert deslabikace("odla") == "olda"
+    assert deslabikace("OdLa") == "OLda"
+
     #test nestandartního zadání
     assert deslabikace("***Zdar***") == "***Zadr***"
+    assert deslabikace("***ZdAr***") == "***ZAdr***"
     assert deslabikace("-4()*/abcd845") == "-4()*/acbd845"
     assert deslabikace("-4()*/abcd845") == "-4()*/acbd845"
     assert deslabikace("kola115") == "kloa115"
@@ -114,51 +130,3 @@ if __name__ == '__main__':
     # Argument os.system. by měl být clear
     assert os.system.call_args == (("clear",),)
 """
-"""import unittest
-import os
-from funkce import NactiSoubor  # Replace 'your_module' with your module name
-
-def test_NactiSoubor_existing_file():
-    # Test reading an existing file
-    test_folder = "soubory"
-    test_filename = "test.txt"
-    test_file_content = "Hello, world!"
-
-    # Create a test folder and a test file with content
-    os.makedirs(test_folder, exist_ok=True)
-    with open(os.path.join(test_folder, test_filename), 'w', encoding='utf-8') as file:
-        file.write(test_file_content)
-
-    # Call the function to read the test file
-    try:
-        result = NactiSoubor(test_filename)
-        assert result == test_file_content
-    except FileNotFoundError:
-        assert False, "NactiSoubor raised FileNotFoundError unexpectedly"
-
-    # Clean up: Remove the test folder and its contents
-    if os.path.exists(test_folder):
-        import shutil
-        shutil.rmtree(test_folder)
-
-def test_NactiSoubor_non_existing_file():
-    # Test trying to read a non-existing file
-    non_existing_filename = "non_existing_file.txt"
-
-    # Call the function with a non-existing file
-    with unittest.TestCase().assertRaises(FileNotFoundError):
-        NactiSoubor(non_existing_filename)
-
-def test_NactiSoubor_invalid_folder():
-    # Test trying to read from a non-existing folder
-    invalid_folder = "invalid_folder"
-    invalid_filename = "test.txt"
-
-    # Call the function with an invalid folder
-    with unittest.TestCase().assertRaises(FileNotFoundError):
-        NactiSoubor(os.path.join(invalid_folder, invalid_filename))
-
-if __name__ == '__main__':
-    test_NactiSoubor_existing_file()
-    test_NactiSoubor_non_existing_file()
-    test_NactiSoubor_invalid_folder()"""

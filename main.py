@@ -20,7 +20,8 @@ def FunkceMenu2(VystupniText, VstupniText):
         elif volba == '2':
             funkce.cls()
             funkce.UlozSoubor(VystupniText)
-            print(f"Text byl úspěšně uložen do souboru \n\nStiskněte enter pro ukončení programu")
+            print("Text byl úspěšně uložen do souboru \n\n \
+                  Stiskněte enter pro ukončení programu")
             getpass.getpass(prompt="")
             sys.exit()
         elif volba == '3':
@@ -53,6 +54,7 @@ def FunkceMainMenu():
             funkce.cls()
             print("Nashledanou\n")
             sys.exit()
+
 
 if __name__ == "__main__":
     funkce.cls()

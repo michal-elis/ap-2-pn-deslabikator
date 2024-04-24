@@ -1,19 +1,27 @@
-""" 
-menu.py 
-Aby byl hlavní soubor programu čitelnější, jsou texty pro výpis jednotlivých menu umístěny zde.
+"""
+menu.py
+Aby byl hlavní soubor programu čitelnější, jsou texty pro výpis jednotlivých \
+    menu umístěny zde.
 """
 import textwrap
 
 
 Info = """*** INFO ***
-Tento program vznikl v dubnu 2024 jako semestrální práce Michala Elise do předmětu 'Pokročilé nástroje pro vývoj' na FAI Univerzity Tomáše Bati a má za úkol demonstrovat, že lidský mozek nečte slova \
-po jednotlivých písmenech, ale jako množinu znaků, které nemusí být ve správném pořadí. Stačí aby bylo na správném místě první a poslední písmeno. Zbytek může být rozmístěn náhodně a lidský mozek dokáže i tak text téměř bez problémů přečíst. 
-Internetem koluje od roku 2003 fáma, že se jedná o zjištění vědců z univerzity Cambridge, ale ve skutečnosti si tohoto fenoménu poprvé všimnul Graham Rawlinson, který jej zdokumentoval v roce 1976 ve své disertační práci na univerzite Nottingham. \
+Tento program vznikl v dubnu 2024 jako semestrální práce Michala Elise do \
+předmětu 'Pokročilé nástroje pro vývoj' na FAI Univerzity Tomáše Bati a má za \
+úkol demonstrovat, že lidský mozek nečte slova
+po jednotlivých písmenech, ale jako množinu znaků, které nemusí být ve \
+správném pořadí. Stačí aby bylo na správném místě první a poslední písmeno. \
+Zbytek může být rozmístěn náhodně a lidský mozek dokáže i tak text téměř \
+bez problémů přečíst. \n
 Více informací najdete v souboru Readme.md"""
-   
-Spusteni = textwrap.fill("Výtejte v programu Deslabikátor. Tento program má za úkol demonstrovat, že lidský mozek nečte slova \
-po jednotlivých písmenech, ale jako množinu znaků, které nemusí být ve správném pořadí. Stačí aby bylo na správném místě první \
-a poslední písmeno. Zbytek může být rozmístěn náhodně a lidský mozek dokáže i tak text téměř bez problémů přečíst. \n \n ", 120) # Text se vypíše se správným zalomením
+
+Spusteni = textwrap.fill("Výtejte v programu Deslabikátor. Tento program má \
+za úkol demonstrovat, že lidský mozek nečte slova po jednotlivých písmenech, \
+ale jako množinu znaků, které nemusí být ve správném pořadí. Stačí aby bylo na\
+ správném místě první a poslední písmeno. Zbytek může být rozmístěn náhodně a \
+lidský mozek dokáže i tak text téměř bez problémů přečíst. \n \n ", 120)
+# Text se vypíše se správným zalomením
 
 MainMenu = """
     ╔════════════════════════════════════════════════════════════════╗
@@ -39,4 +47,5 @@ Vaše data byla načtena v pořádku.
     ╚════════════════════════════════════════════════════════════════╝
 """
 
-NactiZeSouboru = "Soubor umístěte do složky 'soubory', která leží v kořenovém adresíři tohoto programu a zadejte název souboru, který chcete načíst."
+NactiZeSouboru = "Soubor umístěte do složky 'soubory', která leží v kořenovém \
+adresíři tohoto programu a zadejte název souboru, který chcete načíst."
