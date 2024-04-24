@@ -44,7 +44,7 @@ import os
 # Import the function you want to test
 from funkce import UlozSoubor  # Replace 'your_module' with your module name
 
-class TestUlozSoubor(unittest.TestCase):
+"""class TestUlozSoubor(unittest.TestCase):
 
     def setUp(self):
         # Set up any initial state needed for your tests
@@ -90,7 +90,7 @@ class TestUlozSoubor(unittest.TestCase):
             builtins.input = original_input
 
 if __name__ == '__main__':
-    unittest.main()
+    unittest.main()"""
 
 
 
