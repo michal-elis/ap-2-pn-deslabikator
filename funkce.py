@@ -1,4 +1,6 @@
-"""Tento modul obsahuje hlavní funkce."""
+"""Tento modul obsahuje hlavní funkce.
+"""
+
 import random
 import os
 import sys
@@ -164,6 +166,8 @@ def NactiSoubor():
 
 
 def UlozSoubor(VystupniText):
+    """Funkce pro uložení přeskládaného textu do textového souboru."""
+
     soubor = input("Vložte název souboru. Soubor bude uložen do složky \
                    'soubory' v kořenovém adresáři programu. POZOR - Pokud \
                    soubor již existuje, dojde k jeho přepsání \n\n\t")
@@ -181,6 +185,8 @@ def UlozSoubor(VystupniText):
 
 
 def Hra(VystupniText, VstupniText):
+    """Hra - čtení zpřeházeného textu a počítání času."""
+
     print("Po stisku klávesy enter se zobrazí zpřeházený text a začne se \
           počítat čas. Začněte ihned číst text a po dočtení skitskněte opět \
           klávesu enter")

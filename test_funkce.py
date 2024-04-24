@@ -7,8 +7,7 @@ from funkce import UlozSoubor
 
 
 def test_deslabikace():
-    """
-    Test funkce deslabikace.
+    """Test funkce deslabikace.
     """
     # test krátkých slov
 
