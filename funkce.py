@@ -113,26 +113,23 @@ def NactiSoubor():
     cestaSlozka = os.path.join(os.path.dirname(__file__), "soubory")
 
     
-    if not os.path.exists(cestaSlozka): # Kontrola, jestli někdo složku nesmazal
-        print("Složka 'soubory' neexistuje.")
-        return None
+    if not os.path.exists(cestaSlozka): # Kontrola, jestli existuje složka 'soubory'
+        raise FileNotFoundError("Složka 'Soubory' neexistuje.")
 
     # Získat úplnou cestu k cílovému souboru
     cestaSoubor = os.path.join(cestaSlozka, nazevSouboru)
 
     # Zkontrolovat, zda soubor existuje
     if not os.path.exists(cestaSoubor):
-        print("Zadaný soubor neexistuje.")
-        #return None
-
+        raise FileNotFoundError(f"Soubor {nazevSouboru} neexistuje.")
     # Načíst obsah souboru
     try:
         with open(cestaSoubor, 'r', encoding='utf-8') as file:
             obsah = file.read()
         return obsah
-    except Exception as e:
-        print("Při načítání souboru došlo k chybě:", str(e))
-        return None
+    except Exception as chyba:
+        raise SystemError("Při načítání souboru došlo k chybě:", str(chyba))
+       
     
 def UlozSoubor(VystupniText):
     soubor = input("Vložte název souboru. Soubor bude uložen do složky 'soubory' v kořenovém adresáři programu. POZOR - Pokud soubor již existuje, dojde k jeho přepsání \n\n\t")
@@ -141,7 +138,7 @@ def UlozSoubor(VystupniText):
     data_folder = "data"
     file_path = os.path.join("soubory", soubor)
 
-    if not os.path.exists("soubory"):  # Zkontroluje, zda složka neexistuje
+    if not os.path.exists("soubory"):  # Zkontroluje, zda složka neexistuje a pokud ne, tak ji hned vyrobíme.
         os.makedirs("soubory")
 
     # Otevření souboru s kódováním UTF-8 pro zápis
