@@ -29,11 +29,11 @@ def deslabikace(VstupniText):
     >>> deslabikace("123456")
     Traceback (most recent call last):
         ...
-    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.
+    ValueError: Zadání neobsahuje žádná písmena!.
     >>> deslabikace("")
     Traceback (most recent call last):
         ...
-    ValueError: Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.
+    ValueError: Zadání neobsahuje žádná písmena!.
     """
     Deslabikovano = []
 
@@ -81,7 +81,7 @@ def deslabikace(VstupniText):
 
     # Kontrolujeme, jestli zadaný řetězec obsahuje písmena
     if not any(znak.isalpha() for znak in VstupniText):
-        raise ValueError("Vaše zadání neobsahuje žádná písmena, takže nemůže dojít k přeházení.")
+        raise ValueError("Zadání neobsahuje žádná písmena!")
 
     else:
         # Cyklus projede a zpracuje všechna slova v listu
@@ -122,9 +122,7 @@ def deslabikace(VstupniText):
 
 
 def cls():
-    """
-    Funkce pro vyčištění textu na obrazovce
-    """
+    """Funkce pro vyčištění textu na obrazovce."""
     if os.name == "nt":
         prikaz = "cls"  # Windows
         os.system(prikaz)
@@ -137,7 +135,7 @@ def cls():
 
 
 def NactiSoubor():
-    """Tato funkce získá od uživatele data z textového souboru"""
+    """Tato funkce získá od uživatele data z textového souboru."""
     print("Soubor umístěte do složky 'soubory', která leží v kořenovém \
           adresáři tohoto programu a zadejte název souboru, který chcete \
           načíst.")
