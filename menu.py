@@ -1,5 +1,6 @@
 """
-menu.py
+Soubor s texty menu.
+
 Aby byl hlavní soubor programu čitelnější, jsou texty pro výpis jednotlivých \
     menu umístěny zde.
 """
