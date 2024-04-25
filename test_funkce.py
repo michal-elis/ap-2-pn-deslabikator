@@ -3,6 +3,7 @@ from funkce import deslabikace
 import math
 import pytest
 import unittest
+import difflib
 import os
 from funkce import UlozSoubor
 
@@ -59,6 +60,40 @@ def test_deslabikace():
         deslabikace(str(math.pi))
 
 
+def test_deslabikace_tolerance():
+    """Test funkce deslabikace s tolerancí.
+
+    Tyto testy dokáží otestovat i delší slova u kterých se již používá \
+    vnořená funkce mixer a jejich výsledek tak není prediktivní.
+    """
+
+    def test(MaByt, Je, tolerance):
+        """Vnořená funkce test.
+
+        na vstupu má očekávaný výsledek, vstup z funkce deslabikace, \
+        a koeficient tolerance."""
+        shoda = difflib.SequenceMatcher(None, MaByt, Je)
+        podobnost = shoda.ratio()
+        assert podobnost >= tolerance, f"Očekáváno: {MaByt}, Výsledek je: \
+            {Je}, podobnost: {podobnost}"
+
+    # Samotné testy.
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Prcáe***", 0.8)
+    test(deslabikace("***Lokomotiva***"), "***Lkomootvia***", 0.65)
+    test(deslabikace("1234567890dlouheSlovo1234567890"),
+         "***1234567890dluohloeSvo1234567890***", 0.7)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+    test(deslabikace("***Práce***"), "***Pácre***", 0.8)
+
+
 class TestUlozSoubor(unittest.TestCase):
 
     def setUp(self):
@@ -109,9 +144,6 @@ class TestUlozSoubor(unittest.TestCase):
             builtins.input = original_input
 
 
-if __name__ == '__main__':
-    unittest.main()
-
 # Test funkce cls neprochází, takže nebyl použit
 """def test_cls_windows():
     # Simulace Windows
@@ -131,3 +163,5 @@ if __name__ == '__main__':
     # Argument os.system. by měl být clear
     assert os.system.call_args == (("clear",),)
 """
+if __name__ == '__main__':
+    unittest.main()

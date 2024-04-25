@@ -51,6 +51,8 @@ def deslabikace(VstupniText):
         PŘÍKLAD:
         >>> mixer("***Ahoj***")
         [['*', '*', '*', 'A'], 'o', 'h', ['j', '*', '*', '*']]
+        >>> mixer("78RUka#&@")
+        [['7', '8', 'R'], 'k', 'U', ['a', '#', '&', '*@']]
         """
         index_Z = 1  # začátek prohazované části
         index_K = -1  # konec prohazované části
@@ -166,7 +168,7 @@ def NactiSoubor():
 
 def UlozSoubor(VystupniText):
     """Funkce pro uložení přeskládaného textu do textového souboru."""
-    soubor = input("Vložte název souboru. Soubor bude uložen do složky \
+    soubor = input("Umístěte název souboru. Soubor bude uložen do složky \
                    'soubory' v kořenovém adresáři programu. POZOR - Pokud \
                    soubor již existuje, dojde k jeho přepsání \n\n\t")
 

@@ -6,4 +6,3 @@ pouze pomocí čísla, bez stisknutí klávesy Enter. Strávil jsem na tom \
 mnoho času, ale bohužel se mě funkce nepodařilo otestovat tak, aby byl \
 test validní.
 """
-import main

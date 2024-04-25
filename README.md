@@ -33,11 +33,11 @@ Pro nainstalování programu Deslovníkátor budete potřebovat Git a Python. Po
     
     Spusťje si příkazovou řádku, najeďte si do umístění, kam budete chtít program instalovat a spusťte následující kód:
     ```bash
-    git clone https://github.com/deslovnikator
+    git clone https://git.fai.utb.cz/m_elis/ap-2-pn-deslabikator.git
     ```
 
 1. **Instalace potřebných souborů:**
-    Pro doinstalování potřebných souborů spusťte následující kód:
+    Pro doinstalování potřebných modulů spusťte následující kód:
     ```bash
     py -m pip install -r requirements.txt
     ```
