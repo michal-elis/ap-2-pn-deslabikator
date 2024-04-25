@@ -71,7 +71,8 @@ def test_deslabikace_tolerance():
         """Vnořená funkce test.
 
         na vstupu má očekávaný výsledek, vstup z funkce deslabikace, \
-        a koeficient tolerance."""
+        a koeficient tolerance.
+        """
         shoda = difflib.SequenceMatcher(None, MaByt, Je)
         podobnost = shoda.ratio()
         assert podobnost >= tolerance, f"Očekáváno: {MaByt}, Výsledek je: \
@@ -95,20 +96,20 @@ def test_deslabikace_tolerance():
 
 
 class TestUlozSoubor(unittest.TestCase):
+    """Test ukládání souboru"""
 
     def setUp(self):
-        # Set up any initial state needed for your tests
+        """# Set up any initial state needed for your tests"""
         self.output_text = "Hello, world!"
 
     def tearDown(self):
-        # Clean up any resources used during the test if necessary
-        # For example, delete any files created during the tests
+        """Čištění."""
         file_path = os.path.join("soubory", "test.txt")
         if os.path.exists(file_path):
             os.remove(file_path)
 
     def test_UlozSoubor(self):
-        # Simulate user input for the filename
+        """Simulate user input for the filename."""
         filename = 'test.txt'  # Simulated user input
         # This would be provided by the user during runtime
         user_input = filename
