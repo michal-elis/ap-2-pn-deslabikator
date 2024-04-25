@@ -8,8 +8,9 @@ import menu
 
 
 def test_NactiZeSouboru():
-    """Nesmyslný test, který kontroluje pouze to, že v proměnné je to,
-    co tam má být.
+    """Nesmyslný test.
+
+    Kontroluje pouze to, že v proměnné je to, co tam má být.
     """
     assert menu.NactiZeSouboru == "Soubor umístěte do složky 'soubory', která \
 leží v kořenovém adresíři tohoto programu a zadejte název souboru, který \

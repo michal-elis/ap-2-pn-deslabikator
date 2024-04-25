@@ -96,10 +96,10 @@ def test_deslabikace_tolerance():
 
 
 class TestUlozSoubor(unittest.TestCase):
-    """Test ukládání souboru"""
+    """Test ukládání souboru."""
 
     def setUp(self):
-        """# Set up any initial state needed for your tests"""
+        """# Set up any initial state needed for your tests."""
         self.output_text = "Hello, world!"
 
     def tearDown(self):
